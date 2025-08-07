@@ -47,12 +47,12 @@
     <div id="step3" style="display:none;">
         <div class="mb-3">
             <label for="name" class="form-label">Your Name</label>
-            <input type="text" id="name" name="name" class="form-control" required />
+            <input type="text" id="name" name="name" class="form-control" required value="{{ old('name', $user->name ?? '') }}" readonly />
         </div>
 
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" id="email" name="email" class="form-control" required />
+            <input type="email" id="email" name="email" class="form-control" required value="{{ old('email', $user->email ?? '') }}" readonly />
         </div>
 
         <div class="mb-3">

@@ -23,7 +23,9 @@ class BookingController extends Controller
     {
         $type = $request->query('type');
         $services = Service::all();
-        return view('bookings.create', compact('services', 'type'));
+        $user = Auth::user();
+
+        return view('bookings.create', compact('services', 'type', 'user'));
     }
 
     public function store(Request $request)
@@ -32,20 +34,18 @@ class BookingController extends Controller
             'service_id' => 'required|exists:services,id',
             'date' => 'required|date|after:today',
             'time' => 'required',
-            'name' => 'required|string',
-            'email' => 'required|email',
             'phone' => 'required|string',
             'notes' => 'nullable|string',
         ]);
-
+        $user = Auth::user();
         Booking::create([
             'user_id' => Auth::id(),
             'service_id' => $validated['service_id'],
             'date' => $validated['date'],
             'time' => $validated['time'],
             'status' => 'pending',
-            'name' => $validated['name'],
-            'email' => $validated['email'],
+            'name'       => $user->name,
+            'email'      => $user->email,
             'phone' => $validated['phone'],
             'notes' => $validated['notes'],
         ]);
