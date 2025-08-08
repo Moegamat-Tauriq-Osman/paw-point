@@ -4,19 +4,7 @@
 @section('title')
 Booking Management
 @endsection
-<!-- success and error messages -->
-@if(session('success'))
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{ session('success') }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-</div>
-@endif
-@if(session('error'))
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-    {{ session('error') }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-</div>
-@endif
+
 
 <div class="btn-group mb-4 d-flex justify-content-center" role="group" aria-label="Booking Status Tabs">
     <button type="button" class="btn btn-outline-primary active" data-tab="pending">Bookings</button>

@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Book {{ ucfirst(request()->query('type')) }}</h2>
+@section('title')
+    Make a Booking
+@endsection
+<h2>{{ ucfirst(request()->query('type')) }}</h2>
 
 <form method="POST" action="{{ route('bookings.store') }}" id="bookingForm">
     @csrf
@@ -40,8 +43,8 @@
             </select>
         </div>
 
-        <button type="button" class="btn btn-secondary" id="backToStep1">Back</button>
-        <button type="button" class="btn btn-primary" id="toStep3" disabled>Next</button>
+        <button type="button" class="btn btn-all" id="backToStep1">Back</button>
+        <button type="button" class="btn btn-all" id="toStep3" disabled>Next</button>
     </div>
 
     <div id="step3" style="display:none;">
@@ -65,8 +68,8 @@
             <textarea id="notes" name="notes" class="form-control"></textarea>
         </div>
 
-        <button type="button" class="btn btn-secondary" id="backToStep2">Back</button>
-        <button type="submit" class="btn btn-success">Submit Booking</button>
+        <button type="button" class="btn btn-all" id="backToStep2">Back</button>
+        <button type="submit" class="btn btn-all">Submit Booking</button>
     </div>
 </form>
 
