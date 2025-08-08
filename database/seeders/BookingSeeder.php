@@ -23,8 +23,8 @@ class BookingSeeder extends Seeder
             'date' => Carbon::now()->addDays(5)->toDateString(),
             'time' => '09:00:00',
             'status' => 'pending',
-            'name' => 'Jane Whiskers',
-            'email' => 'jane@example.com',
+            'name' => 'User',
+            'email' => 'user@example.com',
             'phone' => '0712345678',
             'notes' => 'Please make sure she gets a window view!',
         ]);
@@ -35,8 +35,8 @@ class BookingSeeder extends Seeder
             'date' => Carbon::now()->addDays(10)->toDateString(),
             'time' => '13:00:00',
             'status' => 'pending',
-            'name' => 'Tom Purrington',
-            'email' => 'tom@example.com',
+            'name' => 'User',
+            'email' => 'user@example.com',
             'phone' => '0823456789',
             'notes' => 'He hates water — be gentle.',
         ]);

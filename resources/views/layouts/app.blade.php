@@ -15,7 +15,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter';
             background-color: #ffffff;
         }
 
@@ -259,7 +259,7 @@
 
     <div class="desktop-sidebar">
         <div class="sidebar-header">
-            <h1 class="sidebar-title">PawPoint</h1>
+            <img src="{{ asset('logos/PrimaryLogo.svg') }}" alt="PrimaryLogo" style="height: 40px;">
         </div>
         <div class="nav-container">
             <nav class="nav-menu">
@@ -297,21 +297,23 @@
         <div class="mobile-backdrop" onclick="toggleMobileMenu()"></div>
         <div class="mobile-menu-panel">
             <div class="sidebar-header">
-                <h1 class="sidebar-title">PawPoint</h1>
+                <img src="{{ asset('logos/PrimaryLogo.svg') }}" alt="PrimaryLogo" style="height: 30px;">
             </div>
             <div class="mobile-nav-container">
                 <nav class="mobile-nav-menu">
                     @auth
                     @if(Auth::user()->role === 'Admin')
-                    <a href="{{ route('admin.dashboard') }}" class="nav-item" onclick="toggleMobileMenu()">Dashboard</a>
-                    <a href="{{ route('admin.bookings.index') }}" class="nav-item" onclick="toggleMobileMenu()">Bookings</a>
-                    <a href="{{ route('admin.services.index') }}" class="nav-item" onclick="toggleMobileMenu()">Services</a>
-                    <a href="{{ route('admin.staff.index') }}" class="nav-item" onclick="toggleMobileMenu()">Staff</a>
+                    <a href="{{ route('admin.dashboard') }}" class="nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">Dashboard</a>
+                    <a href="{{ route('admin.bookings.index') }}" class="nav-item {{ request()->routeIs('admin.bookings.*') ? 'active' : '' }}">Bookings</a>
+                    <a href="{{ route('admin.services.index') }}" class="nav-item {{ request()->routeIs('admin.services.*') ? 'active' : '' }}">Services</a>
+                    <a href="{{ route('admin.staff.index') }}" class="nav-item {{ request()->routeIs('admin.staff.*') ? 'active' : '' }}">Staff</a>
                     @elseif(Auth::user()->role === 'Staff')
-                    <a href="{{ route('staff.dashboard') }}" class="nav-item" onclick="toggleMobileMenu()">Dashboard</a>
-
+                    <a href="{{ route('staff.dashboard') }}" class="nav-item {{ request()->routeIs('staff.dashboard') ? 'active' : '' }}">Dashboard</a>
                     @elseif(Auth::user()->role === 'User')
-                    <a href="{{ route('bookings.index') }}" class="nav-item" onclick="toggleMobileMenu()">My Bookings</a>
+                    <a href="{{ route('home') }}" class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
+                    <a href="{{ route('bookings.index') }}" class="nav-item {{ request()->routeIs('bookings.index') ? 'active' : '' }}">My Bookings</a>
+                    <a href="{{ route('bookings.create') }}" class="nav-item {{ request()->routeIs('bookings.create') ? 'active' : '' }}">Create a booking</a>
+
                     @endif
                     @endauth
                 </nav>
