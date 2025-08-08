@@ -15,22 +15,28 @@
         }
 
         body {
-            font-family: 'Inter';
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
             background-color: #ffffff;
         }
 
-        .mobile-menu-button {
-            display: none;
-            position: fixed;
-            top: 16px;
-            left: 16px;
-            z-index: 60;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+        }
+
+        .fw-semibold {
+            font-weight: 700;
+        }
+
+        .btn-all {
             background-color: #2F98E8;
-            color: white;
-            padding: 8px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
+            border-color: #2F98E8;
+            color: #ffffff;
         }
 
         .desktop-sidebar {
@@ -54,7 +60,7 @@
         }
 
         .sidebar-title {
-            color: white;
+            color: #ffffff;
             font-size: 24px;
             font-weight: 700;
             line-height: 32px;
@@ -78,7 +84,7 @@
             border-radius: 8px;
             align-items: center;
             padding: 0 16px;
-            color: white;
+            color: #ffffff;
             font-size: 16px;
             font-weight: 500;
             line-height: 24px;
@@ -87,7 +93,7 @@
         }
 
         .nav-item:hover {
-            background-color: rgba(47, 81, 232, 0.5);
+            background-color: #2F51E8;
             color: white;
             text-decoration: none;
         }
@@ -103,12 +109,12 @@
         .logout-button {
             width: 100%;
             height: 48px;
-            background-color: white;
+            background-color: #2F51E8;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #2F55FF;
+            color: #ffffff;
             font-size: 16px;
             font-weight: 500;
             line-height: 24px;
@@ -118,7 +124,61 @@
         }
 
         .logout-button:hover {
-            background-color: #f9fafb;
+            background-color: #2F98E8;
+        }
+
+        .main-content {
+            margin-left: 366px;
+            min-height: 100vh;
+        }
+
+        .main-header {
+            height: 81px;
+            border-bottom: 1px solid #ffffff;
+            display: flex;
+            align-items: center;
+            padding: 0 32px;
+            background-color: #ffffff;
+        }
+
+        .page-title {
+            color: #333333;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 32px;
+        }
+
+        .page-content {
+            padding: 32px;
+        }
+
+        .menu-icon,
+        .close-icon {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+
+        .close-icon {
+            display: none;
+        }
+
+        .mobile-menu-button {
+            display: none;
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            z-index: 60;
+            background-color: #2F98E8;
+            color: #ffffff;
+            padding: 8px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
         }
 
         .mobile-sidebar {
@@ -139,7 +199,7 @@
         .mobile-backdrop {
             position: absolute;
             inset: 0;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: #333333;
         }
 
         .mobile-menu-panel {
@@ -174,46 +234,6 @@
             padding: 0 16px 24px 16px;
         }
 
-        .main-content {
-            margin-left: 366px;
-            min-height: 100vh;
-        }
-
-        .main-header {
-            height: 81px;
-            border-bottom: 1px solid #e5e7eb;
-            display: flex;
-            align-items: center;
-            padding: 0 32px;
-            background-color: white;
-        }
-
-        .page-title {
-            color: #1F2937;
-            font-size: 24px;
-            font-weight: 700;
-            line-height: 32px;
-        }
-
-        .page-content {
-            padding: 32px;
-        }
-
-        .menu-icon,
-        .close-icon {
-            width: 24px;
-            height: 24px;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            fill: none;
-        }
-
-        .close-icon {
-            display: none;
-        }
-
         @media (max-width: 768px) {
             .mobile-menu-button {
                 display: block;
@@ -241,8 +261,9 @@
         }
     </style>
 
-    </style>
 </head>
+
+<!-- mbl menu -->
 
 <body>
     <button class="mobile-menu-button" onclick="toggleMobileMenu()">
@@ -257,6 +278,7 @@
         </svg>
     </button>
 
+    <!-- dsk menu -->
     <div class="desktop-sidebar">
         <div class="sidebar-header">
             <img src="{{ asset('logos/PrimaryLogo.svg') }}" alt="PrimaryLogo" style="height: 40px;">
@@ -264,6 +286,7 @@
         <div class="nav-container">
             <nav class="nav-menu">
                 @auth
+                <!-- nav links for roles menu -->
                 @if(Auth::user()->role === 'Admin')
                 <a href="{{ route('admin.dashboard') }}" class="nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">Dashboard</a>
                 <a href="{{ route('admin.bookings.index') }}" class="nav-item {{ request()->routeIs('admin.bookings.*') ? 'active' : '' }}">Bookings</a>
@@ -280,6 +303,8 @@
                 @endauth
             </nav>
         </div>
+
+        <!-- logout  -->
         <div class="logout-container">
             @auth
             <form method="POST" action="{{ route('logout') }}">
@@ -293,6 +318,7 @@
         </div>
     </div>
 
+    <!-- mbl menu -->
     <div class="mobile-sidebar" id="mobile-menu">
         <div class="mobile-backdrop" onclick="toggleMobileMenu()"></div>
         <div class="mobile-menu-panel">
@@ -334,7 +360,7 @@
 
     <div class="main-content">
         <header class="main-header">
-            <h2 class="page-title">@yield('title', 'Paw Point - Appoint with ease')</h2>
+            <h2 class="page-title">@yield('title', 'Your felines car made simple')</h2>
         </header>
 
         <main class="page-content">
