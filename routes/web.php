@@ -26,27 +26,30 @@ Route::get('/dashboard', function () {
     }
 })->middleware(['auth'])->name('dashboard');
 
-// Admin Routes
+// admin routes
 Route::prefix('admin')->middleware(['auth', 'can:is-admin'])->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 
-    // Services
+    // admin ervices
     Route::resource('services', ServiceController::class)->except(['show']);
 
-    // Bookings
+    // admin bookings
     Route::get('/bookings', [BookingController::class, 'adminIndex'])->name('bookings.index');
     Route::patch('/bookings/{booking}/accept', [BookingController::class, 'adminAcceptBooking'])->name('bookings.accept');
     Route::put('/bookings/{booking}', [BookingController::class, 'adminUpdate'])->name('bookings.update');
     Route::get('/bookings/{booking}', action: [BookingController::class, 'adminShow'])->name('bookings.show');
+    Route::patch('/bookings/{booking}/cancel', [BookingController::class, 'adminCancel'])->name('bookings.cancel');
 
-    // Staff Management
+    //admin staff management
     Route::get('/staff', [StaffController::class, 'index'])->name('staff.index');
     Route::get('/staff/create', [StaffController::class, 'create'])->name('staff.create');
+    Route::get('/staff/{staff}/edit', [StaffController::class, 'edit'])->name('staff.edit');
+    Route::put('/staff/{staff}', [StaffController::class, 'update'])->name('staff.update');
     Route::post('/staff', [StaffController::class, 'store'])->name('staff.store');
     Route::delete('/staff/{staff}', [StaffController::class, 'destroy'])->name('staff.destroy');
 });
 
-// Staff Routes
+// staff routes
 Route::prefix('staff')->middleware(['auth', 'can:is-staff'])->name('staff.')->group(function () {
     Route::get('/dashboard', [StaffController::class, 'dashboard'])->name('dashboard');
 
@@ -57,7 +60,7 @@ Route::prefix('staff')->middleware(['auth', 'can:is-staff'])->name('staff.')->gr
     Route::put('/bookings/{booking}', [BookingController::class, 'staffUpdate'])->name('bookings.update');
 });
 
-// User Routes
+// user routes
 Route::middleware(['auth', 'can:is-user'])->group(function () {
     Route::get('/home', function () {
         return view('home');
