@@ -58,6 +58,7 @@ class StaffController extends Controller
             'email' => $request->email,
             'role' => 'Staff',
             'password' => Hash::make($request->password),
+            'email_verified_at' => now(),
         ]);
 
         return redirect()->route('admin.staff.index')->with('success', 'Staff created successfully.');
