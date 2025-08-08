@@ -8,7 +8,7 @@ Booking details
 <div class="card p-4 mb-4">
     <h4>Booking ID: {{ $booking->id }}</h4>
     <p><strong>Service:</strong> {{ $booking->service->name }}</p>
-    <p><strong>Price:</strong> ${{ number_format($booking->service->price, 2) }}</p>
+    <p><strong>Price:</strong> R{{ number_format($booking->service->price, 2) }}</p>
     <p><strong>Date & Time:</strong> {{ $booking->date }} {{ $booking->time }}</p>
     <p><strong>Status:</strong>
         <span class="badge 
