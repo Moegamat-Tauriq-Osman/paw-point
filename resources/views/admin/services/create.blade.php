@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Create Service</h2>
+@section('title')
+    Add a service
+@endsection
 
 <form method="POST" action="{{ route('admin.services.store') }}" enctype="multipart/form-data">
     @csrf
@@ -31,6 +33,6 @@
         <input type="file" name="image" id="image" class="form-control" accept="image/*" />
     </div>
 
-    <button type="submit" class="btn btn-primary">Create Service</button>
+    <button type="submit" class="btn btn-all">Add Service</button>
 </form>
 @endsection

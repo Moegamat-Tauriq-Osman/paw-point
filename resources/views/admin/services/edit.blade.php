@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Edit Service</h2>
+@section('title')
+    Update Service
+@endsection
 
 <form method="POST" action="{{ route('admin.services.update', $service->id) }}" enctype="multipart/form-data">
     @csrf
@@ -37,6 +39,6 @@
         @endif
     </div>
 
-    <button type="submit" class="btn btn-success">Update Service</button>
+    <button type="submit" class="btn btn-all">Update Service</button>
 </form>
 @endsection
