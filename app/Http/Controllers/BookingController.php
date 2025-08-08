@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
-    // User bookings
+    /* user bookings*/
     public function index()
     {
         $bookings = Booking::with('service')
@@ -19,6 +19,7 @@ class BookingController extends Controller
         return view('bookings.index', compact('bookings'));
     }
 
+    /* create a booking*/
     public function create(Request $request)
     {
         $type = $request->query('type');
@@ -52,7 +53,44 @@ class BookingController extends Controller
 
         return redirect()->route('bookings.index')->with('success', 'Booking created successfully!');
     }
+    /* displaying user stats*/
+    public function userDashboard()
+    {
+        $userId = Auth::id();
 
+        $totalBookings = Booking::where('user_id', $userId)->count();
+        $pendingBookings = Booking::where('user_id', $userId)->where('status', 'pending')->count();
+        $completedBookings = Booking::where('user_id', $userId)->where('status', 'completed')->count();
+
+        return view('home', compact('totalBookings', 'pendingBookings', 'completedBookings'));
+    }
+    /* show booking details*/
+    public function show(Booking $booking)
+    {
+        if ($booking->user_id !== auth()->id()) {
+            abort(403, 'Unauthorized access.');
+        }
+
+        $booking->load('service');
+
+        return view('bookings.show', compact('booking'));
+    }
+    /* for user to cancel booking*/
+    public function userCancel(Booking $booking)
+    {
+        if ($booking->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+        if ($booking->status === 'completed') {
+            return redirect()->route('bookings.index')
+                ->with('error', 'You cannot cancel a completed booking.');
+        }
+        $booking->delete();
+
+        return redirect()->route('bookings.index')->with('success', 'Booking cancelled successfully.');
+    }
+
+    /* admin controls*/
     public function adminIndex()
     {
         $pendingBookings = Booking::with(['user', 'service'])
@@ -71,7 +109,7 @@ class BookingController extends Controller
 
         return view('admin.bookings', compact('pendingBookings', 'confirmedBookings', 'completedBookings'));
     }
-
+    /* for admins to also accpt bookings*/
     public function adminAcceptBooking(Booking $booking)
     {
         if ($booking->status === 'pending') {
@@ -79,7 +117,7 @@ class BookingController extends Controller
         }
         return redirect()->route('admin.bookings.index')->with('success', 'Booking accepted.');
     }
-
+    /* for admins to update booking status*/
     public function adminUpdate(Request $request, Booking $booking)
     {
         $validated = $request->validate([
@@ -90,13 +128,13 @@ class BookingController extends Controller
 
         return redirect()->route('admin.bookings.index')->with('success', 'Booking updated.');
     }
-
+    /* for admins to see booking details*/
     public function adminShow(Booking $booking)
     {
         $booking->load('user', 'service');
         return view('admin.show', compact('booking'));
     }
-
+    /* staff stats*/
     public function staffIndex()
     {
         $pendingBookings = Booking::with(['user', 'service'])
@@ -109,7 +147,7 @@ class BookingController extends Controller
 
         return view('staff.dashboard', compact('pendingBookings', 'confirmedBookings'));
     }
-
+    /* for staff to accept a booking*/
     public function acceptBooking(Booking $booking)
     {
         if ($booking->status === 'pending') {
@@ -117,7 +155,7 @@ class BookingController extends Controller
         }
         return redirect()->route('staff.bookings.index')->with('success', 'Booking accepted.');
     }
-
+    /* for staff to update the status of a booking*/
     public function staffEdit(Booking $booking)
     {
         if ($booking->status !== 'confirmed') {
@@ -130,41 +168,5 @@ class BookingController extends Controller
     {
         $booking->update(['status' => 'completed']);
         return redirect()->route('staff.bookings.index')->with('success', 'Booking marked as completed.');
-    }
-
-    public function show(Booking $booking)
-    {
-        if ($booking->user_id !== auth()->id()) {
-            abort(403, 'Unauthorized access.');
-        }
-
-        $booking->load('service');
-
-        return view('bookings.show', compact('booking'));
-    }
-
-    public function userCancel(Booking $booking)
-    {
-        if ($booking->user_id !== Auth::id()) {
-            abort(403, 'Unauthorized action.');
-        }
-        if ($booking->status === 'completed') {
-            return redirect()->route('bookings.index')
-                ->with('error', 'You cannot cancel a completed booking.');
-        }
-        $booking->delete();
-
-        return redirect()->route('bookings.index')->with('success', 'Booking cancelled successfully.');
-    }
-
-    public function userDashboard()
-    {
-        $userId = Auth::id();
-
-        $totalBookings = Booking::where('user_id', $userId)->count();
-        $pendingBookings = Booking::where('user_id', $userId)->where('status', 'pending')->count();
-        $completedBookings = Booking::where('user_id', $userId)->where('status', 'completed')->count();
-
-        return view('home', compact('totalBookings', 'pendingBookings', 'completedBookings'));
     }
 }
