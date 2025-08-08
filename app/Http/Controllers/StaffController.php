@@ -20,6 +20,31 @@ class StaffController extends Controller
         return view('admin.staff.create');
     }
 
+    public function edit(User $staff)
+    {
+        return view('admin.staff.edit', compact('staff'));
+    }
+
+    public function update(Request $request, User $staff)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email|unique:users,email,' . $staff->id,
+            'password' => 'nullable|min:8|confirmed',
+        ]);
+
+        $staff->name = $request->name;
+        $staff->email = $request->email;
+
+        if ($request->filled('password')) {
+            $staff->password = Hash::make($request->password);
+        }
+
+        $staff->save();
+
+        return redirect()->route('admin.staff.index')->with('success', 'Staff updated successfully.');
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -44,6 +69,7 @@ class StaffController extends Controller
         return redirect()->route('admin.staff.index')->with('success', 'Staff deleted successfully.');
     }
 
+    /* for staff dashboard*/
     public function dashboard()
     {
         $pendingBookings = Booking::with(['user', 'service'])
