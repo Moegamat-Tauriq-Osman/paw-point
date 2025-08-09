@@ -54,7 +54,10 @@ Route::prefix('staff')->middleware(['auth', 'can:is-staff'])->name('staff.')->gr
     Route::get('/dashboard', [StaffController::class, 'dashboard'])->name('dashboard');
 
     Route::get('/bookings', [BookingController::class, 'staffIndex'])->name('bookings.index');
-    Route::post('/bookings/{booking}/accept', [BookingController::class, 'acceptBooking'])->name('bookings.accept');  // <-- Add this
+    Route::post('/bookings/{booking}/accept', [BookingController::class, 'acceptBooking'])->name('bookings.accept');
+
+    Route::get('/bookings/{booking}', action: [BookingController::class, 'staffShow'])->name('bookings.show');
+
 
     Route::get('/bookings/{booking}/edit', [BookingController::class, 'staffEdit'])->name('bookings.edit');
     Route::put('/bookings/{booking}', [BookingController::class, 'staffUpdate'])->name('bookings.update');

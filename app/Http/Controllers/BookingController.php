@@ -169,4 +169,10 @@ class BookingController extends Controller
         $booking->update(['status' => 'completed']);
         return redirect()->route('staff.bookings.index')->with('success', 'Booking marked as completed.');
     }
+
+    public function staffShow(Booking $booking)
+    {
+        $booking->load('user', 'service');
+        return view('staff.show', compact('booking'));
+    }
 }
