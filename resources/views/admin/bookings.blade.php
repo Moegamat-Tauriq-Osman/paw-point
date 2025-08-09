@@ -124,7 +124,6 @@ Booking Management
                     <th>Date & Time</th>
                     <th>Status</th>
                     <th>View</th>
-                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
