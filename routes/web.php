@@ -38,7 +38,6 @@ Route::prefix('admin')->middleware(['auth', 'can:is-admin'])->name('admin.')->gr
     Route::patch('/bookings/{booking}/accept', [BookingController::class, 'adminAcceptBooking'])->name('bookings.accept');
     Route::put('/bookings/{booking}', [BookingController::class, 'adminUpdate'])->name('bookings.update');
     Route::get('/bookings/{booking}', action: [BookingController::class, 'adminShow'])->name('bookings.show');
-    Route::patch('/bookings/{booking}/cancel', [BookingController::class, 'adminCancel'])->name('bookings.cancel');
 
     //admin staff management
     Route::get('/staff', [StaffController::class, 'index'])->name('staff.index');

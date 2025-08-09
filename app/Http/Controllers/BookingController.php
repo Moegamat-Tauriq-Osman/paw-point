@@ -117,17 +117,6 @@ class BookingController extends Controller
         }
         return redirect()->route('admin.bookings.index')->with('success', 'Booking accepted.');
     }
-    /* for admins to update booking status*/
-    public function adminUpdate(Request $request, Booking $booking)
-    {
-        $validated = $request->validate([
-            'status' => 'required|in:confirmed,completed',
-        ]);
-
-        $booking->update($validated);
-
-        return redirect()->route('admin.bookings.index')->with('success', 'Booking updated.');
-    }
     /* for admins to see booking details*/
     public function adminShow(Booking $booking)
     {
