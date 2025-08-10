@@ -21,6 +21,7 @@
                     @endif
                     <div class="card-body">
                         <h5 class="card-title">{{ $service->name }}</h5>
+                        <p class=" card-text">{{ $service->description }}</p>
                         <p class="card-text">Price: R{{ number_format($service->price, 2) }}</p>
                     </div>
                 </div>
