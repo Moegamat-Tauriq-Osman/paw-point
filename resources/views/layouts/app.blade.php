@@ -299,6 +299,7 @@
                 <a href="{{ route('home') }}" class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
                 <a href="{{ route('bookings.index') }}" class="nav-item {{ request()->routeIs('bookings.index') ? 'active' : '' }}">My Bookings</a>
                 <a href="{{ route('bookings.create') }}" class="nav-item {{ request()->routeIs('bookings.create') ? 'active' : '' }}">Create a booking</a>
+                <a href="{{ route('profile.edit') }}" class="nav-item {{ request()->routeIs('profile.edit') ? 'active' : '' }}">Profile</a>
 
                 @endif
                 @endauth
@@ -340,6 +341,7 @@
                     <a href="{{ route('home') }}" class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
                     <a href="{{ route('bookings.index') }}" class="nav-item {{ request()->routeIs('bookings.index') ? 'active' : '' }}">My Bookings</a>
                     <a href="{{ route('bookings.create') }}" class="nav-item {{ request()->routeIs('bookings.create') ? 'active' : '' }}">Create a booking</a>
+                    <a href="{{ route('profile.edit') }}" class="nav-item {{ request()->routeIs('profile.edit') ? 'active' : '' }}">Profile</a>
 
                     @endif
                     @endauth
