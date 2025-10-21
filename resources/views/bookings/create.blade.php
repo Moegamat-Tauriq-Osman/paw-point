@@ -2,8 +2,16 @@
 
 @section('content')
 @section('title')
-    Make a Booking
+Make a Booking
 @endsection
+{{-- Success Message --}}
+@if (session('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session('success') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
+
 <h2>{{ ucfirst(request()->query('type')) }}</h2>
 
 <form method="POST" action="{{ route('bookings.store') }}" id="bookingForm">

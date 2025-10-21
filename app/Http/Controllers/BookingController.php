@@ -6,6 +6,8 @@ use App\Models\Booking;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\BookingConfirmation;
+use Illuminate\Support\Facades\Notification;
 
 class BookingController extends Controller
 {
@@ -38,21 +40,32 @@ class BookingController extends Controller
             'phone' => 'required|string',
             'notes' => 'nullable|string',
         ]);
+
         $user = Auth::user();
-        Booking::create([
+
+        $booking = Booking::create([
             'user_id' => Auth::id(),
             'service_id' => $validated['service_id'],
             'date' => $validated['date'],
             'time' => $validated['time'],
             'status' => 'pending',
-            'name'       => $user->name,
-            'email'      => $user->email,
+            'name' => $user->name,
+            'email' => $user->email,
             'phone' => $validated['phone'],
             'notes' => $validated['notes'],
         ]);
 
-        return redirect()->route('bookings.index')->with('success', 'Booking created successfully!');
+
+        try {
+            $user = \App\Models\User::find(Auth::id());
+            $user->notify(new BookingConfirmation($booking));
+        } catch (\Exception $e) {
+            \Log::error('Failed to send booking confirmation email: ' . $e->getMessage());
+        }
+
+        return redirect()->route('bookings.index')->with('success', 'Booking created successfully! A confirmation email has been sent.');
     }
+
     /* displaying user stats*/
     public function userDashboard()
     {
@@ -64,6 +77,7 @@ class BookingController extends Controller
 
         return view('home', compact('totalBookings', 'pendingBookings', 'completedBookings'));
     }
+
     /* show booking details*/
     public function show(Booking $booking)
     {
@@ -75,6 +89,7 @@ class BookingController extends Controller
 
         return view('bookings.show', compact('booking'));
     }
+
     /* for user to cancel booking*/
     public function userCancel(Booking $booking)
     {
@@ -105,24 +120,31 @@ class BookingController extends Controller
             ->where('status', 'completed')
             ->get();
 
-
-
         return view('admin.bookings', compact('pendingBookings', 'confirmedBookings', 'completedBookings'));
     }
-    /* for admins to also accpt bookings*/
+
+    /* for admins to also accept bookings*/
     public function adminAcceptBooking(Booking $booking)
     {
         if ($booking->status === 'pending') {
             $booking->update(['status' => 'confirmed']);
+
+            try {
+                $booking->user->notify(new \App\Notifications\BookingAccepted($booking));
+            } catch (\Exception $e) {
+                \Log::error('Failed to send booking accepted email: ' . $e->getMessage());
+            }
         }
         return redirect()->route('admin.bookings.index')->with('success', 'Booking accepted.');
     }
+
     /* for admins to see booking details*/
     public function adminShow(Booking $booking)
     {
         $booking->load('user', 'service');
         return view('admin.show', compact('booking'));
     }
+
     /* staff stats*/
     public function staffIndex()
     {
@@ -136,14 +158,22 @@ class BookingController extends Controller
 
         return view('staff.dashboard', compact('pendingBookings', 'confirmedBookings'));
     }
+
     /* for staff to accept a booking*/
     public function acceptBooking(Booking $booking)
     {
         if ($booking->status === 'pending') {
             $booking->update(['status' => 'confirmed']);
+
+            try {
+                $booking->user->notify(new \App\Notifications\BookingAccepted($booking));
+            } catch (\Exception $e) {
+                \Log::error('Failed to send booking accepted email: ' . $e->getMessage());
+            }
         }
         return redirect()->route('staff.bookings.index')->with('success', 'Booking accepted.');
     }
+
     /* for staff to update the status of a booking*/
     public function staffEdit(Booking $booking)
     {
@@ -153,9 +183,17 @@ class BookingController extends Controller
         $booking->load(['user', 'service']);
         return view('staff.bookings.edit', compact('booking'));
     }
+
     public function staffUpdate(Request $request, Booking $booking)
     {
         $booking->update(['status' => 'completed']);
+
+        try {
+            $booking->user->notify(new \App\Notifications\BookingCompleted($booking));
+        } catch (\Exception $e) {
+            \Log::error('Failed to send booking completed email: ' . $e->getMessage());
+        }
+
         return redirect()->route('staff.bookings.index')->with('success', 'Booking marked as completed.');
     }
 
