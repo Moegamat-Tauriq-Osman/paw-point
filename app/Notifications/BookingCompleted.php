@@ -40,6 +40,9 @@ class BookingCompleted extends Notification
             ->line('- Status: Completed')
             ->action('View Booking Details', url('/bookings/' . $this->booking->id))
             ->line('We hope you were satisfied with our service!')
+            ->line('If you encounter any issues or need more information, kindly contact us')
+            ->line('Email: info@pawpoint.com')
+            ->line('Phone: +27 72 345 6789')
             ->line('Thank you for choosing Paw Point!');
     }
 }

@@ -42,6 +42,9 @@ class BookingConfirmation extends Notification
             ->line('- Status: Pending')
             ->action('View Your Booking', url('/bookings/' . $this->booking->id))
             ->line('We will notify you once your booking is confirmed.')
+            ->line('If you encounter any issues or need more information, kindly contact us')
+            ->line('Email: info@pawpoint.com')
+            ->line('Phone: +27 72 345 6789')
             ->line('Thank you for choosing Paw Point!');
     }
 

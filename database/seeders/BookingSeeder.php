@@ -24,7 +24,7 @@ class BookingSeeder extends Seeder
             'time' => '09:00:00',
             'status' => 'pending',
             'name' => 'User',
-            'email' => 'user@example.com',
+            'email' => 'user@pawpoint.com',
             'phone' => '0712345678',
             'notes' => 'Please make sure she gets a window view!',
         ]);
@@ -36,7 +36,7 @@ class BookingSeeder extends Seeder
             'time' => '13:00:00',
             'status' => 'pending',
             'name' => 'User',
-            'email' => 'user@example.com',
+            'email' => 'user@pawpoint.com',
             'phone' => '0823456789',
             'notes' => 'He hates water — be gentle.',
         ]);
