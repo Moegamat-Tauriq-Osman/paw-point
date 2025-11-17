@@ -197,9 +197,81 @@ class BookingController extends Controller
         return redirect()->route('staff.bookings.index')->with('success', 'Booking marked as completed.');
     }
 
+    public function adminSearch(Request $request)
+    {
+        $search = $request->query('q', '');
+
+        $pending = Booking::where('status', 'pending')
+            ->when($search, function ($query) use ($search) {
+                $query->where('id', 'LIKE', "%$search%")
+                    ->orWhereHas('user', function ($q) use ($search) {
+                        $q->where('name', 'LIKE', "%$search%");
+                    });
+            })
+            ->with(['user', 'service'])
+            ->get();
+
+        $confirmed = Booking::where('status', 'confirmed')
+            ->when($search, function ($query) use ($search) {
+                $query->where('id', 'LIKE', "%$search%")
+                    ->orWhereHas('user', function ($q) use ($search) {
+                        $q->where('name', 'LIKE', "%$search%");
+                    });
+            })
+            ->with(['user', 'service'])
+            ->get();
+
+        $completed = Booking::where('status', 'completed')
+            ->when($search, function ($query) use ($search) {
+                $query->where('id', 'LIKE', "%$search%")
+                    ->orWhereHas('user', function ($q) use ($search) {
+                        $q->where('name', 'LIKE', "%$search%");
+                    });
+            })
+            ->with(['user', 'service'])
+            ->get();
+
+
+        return response()->json([
+            'pending' => $pending,
+            'confirmed' => $confirmed,
+            'completed' => $completed
+        ]);
+    }
+
     public function staffShow(Booking $booking)
     {
         $booking->load('user', 'service');
         return view('staff.show', compact('booking'));
+    }
+
+    public function staffSearch(Request $request)
+    {
+        $search = $request->query('q', '');
+
+        $pending = Booking::where('status', 'pending')
+            ->when($search, function ($query) use ($search) {
+                $query->where('id', 'LIKE', "%$search%")
+                    ->orWhereHas('user', function ($q) use ($search) {
+                        $q->where('name', 'LIKE', "%$search%");
+                    });
+            })
+            ->with(['user', 'service'])
+            ->get();
+
+        $confirmed = Booking::where('status', 'confirmed')
+            ->when($search, function ($query) use ($search) {
+                $query->where('id', 'LIKE', "%$search%")
+                    ->orWhereHas('user', function ($q) use ($search) {
+                        $q->where('name', 'LIKE', "%$search%");
+                    });
+            })
+            ->with(['user', 'service'])
+            ->get();
+
+        return response()->json([
+            'pending' => $pending,
+            'confirmed' => $confirmed
+        ]);
     }
 }

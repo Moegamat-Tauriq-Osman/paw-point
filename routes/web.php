@@ -38,6 +38,9 @@ Route::prefix('admin')->middleware(['auth', 'can:is-admin'])->name('admin.')->gr
 
     // admin bookings
     Route::get('/bookings', [BookingController::class, 'adminIndex'])->name('bookings.index');
+    
+    Route::get('/bookings/search', action: [BookingController::class, 'adminSearch'])->name('bookings.search');
+
     Route::patch('/bookings/{booking}/accept', [BookingController::class, 'adminAcceptBooking'])->name('bookings.accept');
     Route::put('/bookings/{booking}', [BookingController::class, 'adminUpdate'])->name('bookings.update');
     Route::get('/bookings/{booking}', action: [BookingController::class, 'adminShow'])->name('bookings.show');
@@ -58,8 +61,9 @@ Route::prefix('staff')->middleware(['auth', 'can:is-staff'])->name('staff.')->gr
     Route::get('/bookings', [BookingController::class, 'staffIndex'])->name('bookings.index');
     Route::post('/bookings/{booking}/accept', [BookingController::class, 'acceptBooking'])->name('bookings.accept');
 
-    Route::get('/bookings/{booking}', action: [BookingController::class, 'staffShow'])->name('bookings.show');
+    Route::get('/bookings/search', [BookingController::class, 'staffSearch'])->name('bookings.search');
 
+    Route::get('/bookings/{booking}', action: [BookingController::class, 'staffShow'])->name('bookings.show');
 
     Route::get('/bookings/{booking}/edit', [BookingController::class, 'staffEdit'])->name('bookings.edit');
     Route::put('/bookings/{booking}', [BookingController::class, 'staffUpdate'])->name('bookings.update');
