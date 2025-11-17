@@ -120,6 +120,7 @@
             <div class="d-flex justify-content-center gap-3 flex-wrap">
                 <a href="/login" class="btn btn-all">Log in</a>
                 <a href="/register" class="btn btn-all">Register</a>
+                <a href="/about" class="btn btn-all">About Us</a>
             </div>
         </div>
     </header>
