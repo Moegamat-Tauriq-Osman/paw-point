@@ -1,4 +1,4 @@
-<img width="1365" height="626" alt="Screenshot 2025-11-20 122138" src="https://github.com/user-attachments/assets/742272c9-1ca9-420c-bdac-351cf478f8c2" /><p align="center"><img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PrimaryLogo.svg" width="400" alt="Laravel Logo"></p>
+<p align="center"><img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PrimaryLogo.svg" width="400" alt="Laravel Logo"></p>
 
 ## <img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="20" alt="Logo" /> About Paw Point
 
