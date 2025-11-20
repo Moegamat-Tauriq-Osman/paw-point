@@ -9,6 +9,7 @@ Paw Point is a web application, digital booking system designed for feline care 
 ## <img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="20" alt="Logo" /> Features
 
 - Role-based Access (Admin, Staff Member, Customer)
+- Profile Management
 - Manage Bookings
 - Manage Services
 - Manage Staff
@@ -39,7 +40,7 @@ Paw Point is a web application, digital booking system designed for feline care 
 
 ---
 
-## Look of the Paw Point application
+## <img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="20" alt="Logo" /> Look of the Paw Point application
 
 ### Landing Page, Login, Registration & Password Reset
 
@@ -55,6 +56,11 @@ Paw Point is a web application, digital booking system designed for feline care 
 ### Password Reset Page
 <img width="1365" height="637" alt="Screenshot 2025-11-20 120755" src="https://github.com/user-attachments/assets/79ec9152-6470-4034-a3b1-f7c61128e288" />
 
+### Customer interface
+<img width="1365" height="633" alt="Screenshot 2025-11-20 121313" src="https://github.com/user-attachments/assets/470e96fd-b500-40c2-814e-4db6f93a73c5" />
+<img width="1365" height="634" alt="Screenshot 2025-11-20 121328" src="https://github.com/user-attachments/assets/953d3f38-ca63-448d-a3c4-c93de0d24f57" />
+<img width="1365" height="635" alt="Screenshot 2025-11-20 121350" src="https://github.com/user-attachments/assets/78c4b13b-12fe-4d19-a3d6-1ce37d72f181" />
+<img width="1365" height="633" alt="Screenshot 2025-11-20 121248" src="https://github.com/user-attachments/assets/a5ab7e37-da3e-4dfa-82ce-45ec220657af" />
 
 ## ⚙️ Installation
 
