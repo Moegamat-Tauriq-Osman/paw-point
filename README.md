@@ -113,7 +113,7 @@ Note - Ensure you modify the env file to match your database!
 
 ### Steps
 # 1. Clone the repository
-git clone https://github.com/your-username/task-management-app.git
+git clone https://github.com/your-username/paw-point.git
 cd task-management-app
 
 # 2. Install PHP dependencies
