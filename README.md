@@ -13,7 +13,7 @@ Paw Point is a web application, digital booking system designed for feline care 
 
 ---
 
-## Features
+## <img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="20" alt="Logo" /> Features
 
 - Role-based Access (Admin, Staff Member, Customer)
 - Manage Bookings
@@ -25,7 +25,7 @@ Paw Point is a web application, digital booking system designed for feline care 
 
 ---
 
-## Technologies Used
+## <img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="20" alt="Logo" /> Technologies Used
 
 - Laravel 12+
 - Laravel Breeze (Auth)
@@ -37,12 +37,12 @@ Paw Point is a web application, digital booking system designed for feline care 
 
 ---
 
-## Guide: How to Use the Application
- ### User Roles
+## <img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="20" alt="Logo" /> Guide: How to Use the Application
+ ### <img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="20" alt="Logo" /> User Roles
  - **Admin** - Monitor/Manage bookings, services and staff.
  - **Staff Member** - View, accept and complete bookings.
 - **Customer** - View and create bookings.
- ### 🔐 Customer Registration & Login - Register at: `/register` - Login at: `/login` - Laravel Breeze handles authentication securely. Customers can also reset their passwords. ---
+ ### <img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="20" alt="Logo" /> Customer Registration & Login - Register at: `/register` - Login at: `/login` - Laravel Breeze handles authentication securely. Customers can also reset their passwords. ---
 
 ---
 
