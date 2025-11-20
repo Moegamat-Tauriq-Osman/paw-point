@@ -42,16 +42,19 @@ Paw Point is a web application, digital booking system designed for feline care 
 - Credentials for login (Test)
   
 <img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="20" alt="Logo" /> Admin 
-Email - admin@pawpoint.com
-Password - admin
+
+- Email - admin@pawpoint.com
+- Password - admin
 
 <img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="20" alt="Logo" /> Staff 
-Email - staff@pawpoint.com
-Password - staff
+
+- Email - staff@pawpoint.com
+- Password - staff
 
 <img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="20" alt="Logo" /> Customer 
-Email - user@pawpoint.com
-Password - user
+
+- Email - user@pawpoint.com
+- Password - user
 
 ---
 
