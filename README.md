@@ -1,12 +1,5 @@
 <p align="center"><img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PrimaryLogo.svg" width="400" alt="Laravel Logo"></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
 ## <img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="20" alt="Logo" /> About Paw Point
 
 Paw Point is a web application, digital booking system designed for feline care services offering feline owners a convenient way to book boarding/grooming or care services online which combines a modern web-based product with services, creating a seamless experience for both customers and staff.
@@ -42,11 +35,27 @@ Paw Point is a web application, digital booking system designed for feline care 
  - **Admin** - Monitor/Manage bookings, services and staff.
  - **Staff Member** - View, accept and complete bookings.
 - **Customer** - View and create bookings.
- ### <img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="20" alt="Logo" /> Customer Registration & Login - Register at: `/register` - Login at: `/login` - Laravel Breeze handles authentication securely. Customers can also reset their passwords. ---
+ ### <img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="20" alt="Logo" /> Customer Registration & Login - Register at: `/register` - Login at: `/login` - Laravel Breeze handles authentication securely. Customers can also reset their passwords.
 
 ---
 
+## Look of the Paw Point application
+
+### Landing Page, Login, Registration & Password Reset
+
+### Landing Page
+<img width="1365" height="640" alt="Screenshot 2025-11-20 120703" src="https://github.com/user-attachments/assets/9fe6335d-55de-4535-a426-a3969436b913" />
+### Login Page
+<img width="1365" height="639" alt="Screenshot 2025-11-20 120719" src="https://github.com/user-attachments/assets/8934d3b3-dc2e-4e50-b469-a68fac4604b1" />
+### Registration Page
+<img width="1364" height="638" alt="Screenshot 2025-11-20 120739" src="https://github.com/user-attachments/assets/ffddd232-8820-445a-8f3e-775a021f58de" />
+### Password Reset Page
+<img width="1365" height="637" alt="Screenshot 2025-11-20 120755" src="https://github.com/user-attachments/assets/79ec9152-6470-4034-a3b1-f7c61128e288" />
+
+
 ## ⚙️ Installation
+
+Note - Ensure you modify the env file to match your database!
 
 ### Prerequisites
 - PHP 8.1+
