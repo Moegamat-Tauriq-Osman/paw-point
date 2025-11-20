@@ -7,51 +7,78 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Paw Point
+## <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg></a>About Paw Point
 
 Paw Point is a web application, digital booking system designed for feline care services offering feline owners a convenient way to book boarding/grooming or care services online which combines a modern web-based product with services, creating a seamless experience for both customers and staff.
 
-- [Customers can sign-up, create and monitor bookings effieciently.]
-- [Staff can manage bookings effieciently.]
-- [Admins can manage bookings, services and staff effieciently.]
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Features
 
-## Learning Laravel
+- Role-based Access (Admin, Staff Member, Customer)
+- Manage Bookings
+- Manage Services
+- Manage Staff
+- Email Notifications for booking confirmations
+- Authentication via Laravel Breeze
+- Simple user friendly interfaces
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Technologies Used
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Laravel 12+
+- Laravel Breeze (Auth)
+- Blade (Templating)
+- MySQL / SQLite
+- Mailtrap (for local email)
+- Bootstrap / Tailwind CSS / Css (template converted to Blade)
+- PHPUnit (Testing)
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Guide: How to Use the Application
+ ### User Roles
+ - **Admin** - Monitor/Manage bookings, services and staff.
+ - **Staff Member** - View, accept and complete bookings.
+- **Customer** - View and create bookings.
+ ### 🔐 Customer Registration & Login - Register at: `/register` - Login at: `/login` - Laravel Breeze handles authentication securely. Customers can also reset their passwords. ---
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## ⚙️ Installation
 
-## Contributing
+### Prerequisites
+- PHP 8.1+
+- Composer
+- Node.js & npm
+- MySQL or SQLite
+- Mailpit (for email testing)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Steps
+# 1. Clone the repository
+git clone https://github.com/your-username/task-management-app.git
+cd task-management-app
 
-## Code of Conduct
+# 2. Install PHP dependencies
+composer install
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# 3. Install frontend dependencies
+npm install && npm run dev
 
-## Security Vulnerabilities
+# 4. Copy .env and configure
+cp .env.example .env
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# 5. Set database config in .env (use SQLite or MySQL)
+php artisan key:generate
+
+# 6. Run migrations and seeders
+php artisan migrate --seed
+
+# 7. Start the local server
+php artisan serve
+
+---
 
 ## License
-
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
