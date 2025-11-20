@@ -7,17 +7,13 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## <palign="center"><img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="400" alt="Laravel Logo">About Paw Point</p>
+## About Paw Point
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Paw Point is a web application, digital booking system designed for feline care services offering feline owners a convenient way to book boarding/grooming or care services online which combines a modern web-based product with services, creating a seamless experience for both customers and staff.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Customers can sign-up, create and monitor bookings effieciently.]
+- [Staff can manage bookings effieciently.]
+- [Admins can manage bookings, services and staff effieciently.]
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
