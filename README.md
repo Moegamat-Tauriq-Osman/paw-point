@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg></a>About Paw Point
+## <img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="20" alt="Logo" /> About Paw Point
 
 Paw Point is a web application, digital booking system designed for feline care services offering feline owners a convenient way to book boarding/grooming or care services online which combines a modern web-based product with services, creating a seamless experience for both customers and staff.
 
