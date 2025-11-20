@@ -45,10 +45,13 @@ Paw Point is a web application, digital booking system designed for feline care 
 
 ### Landing Page
 <img width="1365" height="640" alt="Screenshot 2025-11-20 120703" src="https://github.com/user-attachments/assets/9fe6335d-55de-4535-a426-a3969436b913" />
+
 ### Login Page
 <img width="1365" height="639" alt="Screenshot 2025-11-20 120719" src="https://github.com/user-attachments/assets/8934d3b3-dc2e-4e50-b469-a68fac4604b1" />
+
 ### Registration Page
 <img width="1364" height="638" alt="Screenshot 2025-11-20 120739" src="https://github.com/user-attachments/assets/ffddd232-8820-445a-8f3e-775a021f58de" />
+
 ### Password Reset Page
 <img width="1365" height="637" alt="Screenshot 2025-11-20 120755" src="https://github.com/user-attachments/assets/79ec9152-6470-4034-a3b1-f7c61128e288" />
 
