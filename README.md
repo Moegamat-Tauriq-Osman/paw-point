@@ -45,19 +45,16 @@ Paw Point is a web application, digital booking system designed for feline care 
 
 - Email - admin@pawpoint.com
 - Password - admin
-- Password - adminadmin (For live Website)
 
 <img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="20" alt="Logo" /> Staff 
 
 - Email - staff@pawpoint.com
 - Password - staff
-- Password - staffstaff (For Live Website
 
 <img src="https://github.com/Moegamat-Tauriq-Osman/paw-point/blob/main/public/logos/PawVariation.svg" width="20" alt="Logo" /> Customer 
 
 - Email - user@gmsil.com
 - Password - user
-- Note : create your own account for the live website.
 
 ---
 
